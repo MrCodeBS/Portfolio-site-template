@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Ultra-Cool Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+        </ul>
+    </nav>
+
+    <header id="home">
+        <div class="container">
+            <h1>MrCode</h1>
+            <p>Web Developer & Designer Extraordinaire</p>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </header>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">My Awesome Projects</h2>
+            <div class="projects">
+                <div class="project">
+                    <div class="project-image" style="background-image: url('/api/placeholder/400/320');"></div>
+                    <div class="project-content">
+                        <h3>CryptoChaosCoin</h3>
+                        <p>A real-time chat application with AI-generated responses and sentiment analysis.</p>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="project-image" style="background-image: url('/images/CryptoChaosCoin.png');"></div>
+                    <div class="project-content">
+                        <h3>Interactive Data Visualization</h3>
+                        <p>A dynamic dashboard showcasing complex data sets with stunning visuals and animations.</p>
+                    </div>
+                </div>
+                <div class="project">
+                    <div class="project-image" style="background-image: url('/api/placeholder/400/320');"></div>
+                    <div class="project-content">
+                        <h3>Augmented Reality Portfolio</h3>
+                        <p>An AR-enhanced portfolio app that brings project demonstrations to life.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">My Superpowers</h2>
+            <div class="skills">
+                <span class="skill-tag1">HTML5
+                    <div class=".skill-image" style="background-image: url('/images/html5.png');"></div>
+
+                </span>
+                <span class="skill-tag">CSS3</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">GraphQL</span>
+                <span class="skill-tag">WebGL</span>
+                <span class="skill-tag">Three.js</span>
+                <span class="skill-tag">AR/VR Development</span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Navbar color change on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = `fadeInUp 1s ease-out ${entry.target.dataset.delay || '0s'} both`;
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.project, .skill-tag').forEach((el, index) => {
+            el.style.opacity = '0';
+            el.dataset.delay = `${index * 0.1}s`;
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
