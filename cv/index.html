@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My CV</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        header {
+            background: #35424a;
+            color: white;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
+        }
+        header h1 {
+            margin: 0;
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        .main-info, .experience, .education, .skills {
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #35424a;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            background: #e8491d;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #35424a;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Your Name</h1>
+    </header>
+
+    <div class="container">
+        <section class="main-info">
+            <h2>About Me</h2>
+            <p>A brief introduction about yourself and your career objectives.</p>
+        </section>
+
+        <section class="experience">
+            <h2>Work Experience</h2>
+            <button onclick="toggleSection('job1')">Job Title 1</button>
+            <div id="job1" class="hidden">
+                <h3>Company Name</h3>
+                <p>Date - Date</p>
+                <ul>
+                    <li>Responsibility 1</li>
+                    <li>Responsibility 2</li>
+                    <li>Responsibility 3</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="education">
+            <h2>Education</h2>
+            <button onclick="toggleSection('edu1')">Degree Name</button>
+            <div id="edu1" class="hidden">
+                <h3>University Name</h3>
+                <p>Graduation Date</p>
+                <p>Brief description or notable achievements</p>
+            </div>
+        </section>
+
+        <section class="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>Skill 1</li>
+                <li>Skill 2</li>
+                <li>Skill 3</li>
+            </ul>
+        </section>
+    </div>
+
+    <script>
+        function toggleSection(id) {
+            var section = document.getElementById(id);
+            if (section.classList.contains('hidden')) {
+                section.classList.remove('hidden');
+            } else {
+                section.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>

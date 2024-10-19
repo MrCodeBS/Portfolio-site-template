@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cool CV</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <img src="bild.jpeg" alt="Bind" class="profile-img">
+            <h1>Bhupinder Singh</h1>
+            <p>Web Developer</p>
+            <h2>Skills</h2>
+            <div class="skill">
+                <p>HTML/CSS</p>
+                <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill">
+                <p>JavaScript</p>
+                <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill">
+                <p>React</p>
+                <div class="skill-bar"><div class="skill-level" style="width: 80%;"></div></div>
+            </div>
+            <h2>Contact</h2>
+            <p>Email: Bhupinder.singh@swisscom.com</p>
+            <p>Phone: (123) 456-7890</p>
+            <p>Location: City, Country</p>
+        </aside>
+        <main class="main-content">
+            <section>
+                <h2>About Me</h2>
+                <p>A passionate web developer with a keen eye for design and a love for creating seamless user experiences. With a strong foundation in front-end technologies and a growing expertise in back-end development, I aim to craft digital solutions that make a difference.</p>
+            </section>
+            <section>
+                <h2>Work Experience</h2>
+                <div class="experience-item">
+                    <h3>Senior Web Developer</h3>
+                    <p>TechCorp Inc. | 2018 - Present</p>
+                    <button onclick="toggleSection('job1')">Show Details</button>
+                    <ul id="job1" class="hidden">
+                        <li>Led a team of 5 developers in creating responsive web applications</li>
+                        <li>Implemented modern JavaScript frameworks to improve site performance by 40%</li>
+                        <li>Mentored junior developers and conducted code reviews</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Junior Web Developer</h3>
+                    <p>WebSolutions Co. | 2015 - 2018</p>
+                    <button onclick="toggleSection('job2')">Show Details</button>
+                    <ul id="job2" class="hidden">
+                        <li>Developed and maintained client websites using HTML, CSS, and JavaScript</li>
+                        <li>Collaborated with designers to implement pixel-perfect layouts</li>
+                        <li>Optimized websites for maximum speed and scalability</li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <h2>Education</h2>
+                <div class="education-item">
+                    <h3>Bachelor of Science in Computer Science</h3>
+                    <p>Tech University | Graduated: 2015</p>
+                    <button onclick="toggleSection('edu1')">Show Details</button>
+                    <ul id="edu1" class="hidden">
+                        <li>GPA: 3.8/4.0</li>
+                        <li>Relevant coursework: Web Development, Database Systems, Algorithms</li>
+                        <li>Senior Project: Developed a social media platform for local communities</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>
+        function toggleSection(id) {
+            const section = document.getElementById(id);
+            section.classList.toggle('hidden');
+            const button = event.target;
+            button.textContent = section.classList.contains('hidden') ? 'Show Details' : 'Hide Details';
+        }
+    </script>
+</body>
+</html>
